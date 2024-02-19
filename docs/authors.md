@@ -1,3 +1,3 @@
 {%
-  include "AUTHORS.md"
+  include AUTHORS.md
 %}
