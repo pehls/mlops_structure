@@ -84,6 +84,9 @@ doc = [
 [tool.poetry.scripts]
 mlops_structure = 'mlops_structure.cli:main'
 
+[tool.poetry.group.dev.dependencies]
+ipykernel = "^6.29.2"
+
 [build-system]
 requires = ["poetry-core>=1.0.0"]
 build-backend = "poetry.core.masonry.api"
