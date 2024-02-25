@@ -7,16 +7,19 @@
         alt = "Release Status">
 </a>
 
-<a href="https://github.com/pehls/mlops_structure/actions">
-    <img src="https://github.com/pehls/mlops_structure/actions/workflows/main.yml/badge.svg?branch=release" alt="CI Status">
+<a href="https://github.com/pehls/mlops_structure/.github/workflows">
+    <img src="https://github.com/pehls/mlops_structure/.github/workflows/release.yml/badge.svg?branch=master" alt="CI Status">
 </a>
 
 <a href="https://pehls.github.io/mlops_structure/">
     <img src="https://img.shields.io/website/https/pehls.github.io/mlops_structure/index.html.svg?label=docs&down_message=unavailable&up_message=available" alt="Documentation Status">
 </a>
 
-</p>
+<a>
 
+</a>
+</p>
++ [![cov](https://pehls.github.io/mlops_structure/badges/coverage.svg)](https://github.com/pehls/mlops_structure/.github/workflows)
 
 MLOps full structure for llm/ml, done with Python
 
