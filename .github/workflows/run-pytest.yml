@@ -52,5 +52,9 @@ jobs:
       - name: Generate Coverage Badge
         run: |
           genbadge coverage --input-file=docs/tests/coverage.xml --output-file=docs/badges/coverage-badge.svg
+      - name: Commit 
+        uses: EndBug/add-and-commit@v9
+        with:
+          add: '.'
 
         
