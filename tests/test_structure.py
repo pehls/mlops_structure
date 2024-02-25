@@ -1,22 +1,9 @@
-#!/usr/bin/env python
-"""Tests for `mlops_structure` package."""
-# pylint: disable=redefined-outer-name
-
 import pytest
+import os
+from mlops_structure.structure import feature_store
+from mlops_structure.storage_flavors.Delta import delta_storage
 
-
-@pytest.fixture
-def response():
-    """Sample pytest fixture.
-
-    See more at: http://doc.pytest.org/en/latest/fixture.html
-    """
-    # import requests
-    # return requests.get('https://github.com/audreyr/cookiecutter-pypackage')
-
-
-def test_content(response):
-    """Sample pytest test function with the pytest fixture as an argument."""
-    # from bs4 import BeautifulSoup
-    # assert 'GitHub' in BeautifulSoup(response.content).title.string
-    del response
+def test_basepath_is_created_at_init():
+    ds = delta_storage(store_name='test_storage')
+    fs = feature_store(ds)
+    assert os.path.exists(ds.base_path)
