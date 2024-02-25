@@ -79,6 +79,8 @@ class delta_storage(interface_storage):
         with open(f'{self.base_path}/{self._metadata_store_path}/{feature_name}/metadata.json', 'w') as file:
             file.write(json.dumps(metadata))
 
+        return os.path.isdir(f'{self.base_path}/{self.store_name}/{feature_name}')
+
     @classmethod
     def _define_schema(self, df = None):
         if (df is None):
