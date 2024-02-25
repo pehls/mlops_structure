@@ -53,7 +53,8 @@ class delta_storage(interface_storage):
                  'schema' : {
                      'columns' : [],
                      'schema' : {'column':'type'},
-                     'original_length' : 123
+                     'original_length' : 123,
+                     'columns_description' : {'column':'description'}
                  }
                  }):
         if (df is None):
@@ -85,7 +86,8 @@ class delta_storage(interface_storage):
         return {
             'columns' : list(df.columns),
             'schema' : {x.Index : str(x._1) for x in df.dtypes.to_frame().itertuples()},
-            'original_length' : df.size if type(df) == pd.DataFrame else df.count()
+            'original_length' : df.size if type(df) == pd.DataFrame else df.count(),
+            'columns_description' : {column : 'Description not yet overwritten!' for column in list(df.columns)}
         }
 
     @classmethod

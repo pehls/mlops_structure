@@ -13,8 +13,15 @@ class interface_storage(object):
                  'version' : 0,
                  'primary_keys' : ['id'],
                  'partition_keys' : ['ts'],
+                 'mode' : 'overwrite',
                  'time_column' : 'ts',
-                 'tags' : {}
+                 'tags' : {},
+                 'schema' : {
+                     'columns' : [],
+                     'schema' : {'column':'type'},
+                     'original_length' : 123,
+                     'columns_description' : {'column':'description'}
+                 }
                  }):
         NotImplementedError()
 
