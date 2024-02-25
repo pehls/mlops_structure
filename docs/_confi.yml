@@ -11,3 +11,6 @@ include:
   - INDEX.md
   - INSTALLATION.md
   - USAGE.md
+  theme:
+    features:
+      - navigation.instant

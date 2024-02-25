@@ -1,0 +1,52 @@
+name: Run pytest
+
+on:
+  push:
+    branches: [ "master", "dev", "homolog" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ["3.8", "3.9", "3.10", "3.11"]
+        poetry-version: ["1.0", "1.3.2"]
+        os: [ubuntu-latest]
+
+    runs-on: ${{ matrix.os }}
+
+    steps:
+      - uses: actions/checkout@v3
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v4
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: Install poetry
+        uses: abatilo/actions-poetry@v2
+        with:
+          poetry-version: ${{ matrix.poetry-version }}
+      - name: Install dependencies
+        run: |
+          poetry install
+      - name: Test with pytest
+        run: |
+          poetry run pytest --junitxml=docs/tests/junit.xml --html=docs/tests/report.html
+      - name: Generate Tests Badge
+        run: |
+          poetry run genbadge tests --input-file=docs/tests/junit.xml --output-file=docs/badges/tests-badge.svg
+      - name: Run Test Coverage Report
+        run: |
+          poetry run coverage report
+      - name: Run Test Coverage XML
+        run: |
+          poetry run coverage xml -o docs/tests/coverage.xml
+      - name: Run Test Coverage HTML
+        run: |
+          poetry run coverage html -o docs/tests/coverage.html
+      - name: Generate Coverage Badge
+        run: |
+          poetry run genbadge tests --input-file=docs/tests/coverage.xml --output-file=docs/badges/coverage-badge.svg
+
+        
