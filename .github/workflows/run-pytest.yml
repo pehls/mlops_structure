@@ -29,7 +29,7 @@ jobs:
     - name: Install dependencies
       uses: abatilo/actions-poetry@v2
       with:
-        python-version: ${{ matrix.poetry-version }}
+        poetry-version: ${{ matrix.poetry-version }}
     - name: Test with pytest
       run: |
         poetry install
