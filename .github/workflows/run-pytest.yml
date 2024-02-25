@@ -32,16 +32,21 @@ jobs:
           poetry install
       - name: Test with pytest
         run: |
-          poetry run pytest
+          poetry run pytest --junitxml=docs/tests/junit.xml --html=docs/tests/report.html
+      - name: Generate Tests Badge
+        run: |
+          poetry run genbadge tests --input-file=docs/tests/junit.xml --output-file=docs/badges/tests-badge.svg
+      - name: Run Test Coverage Report
+        run: |
+          poetry run coverage report
+      - name: Run Test Coverage XML
+        run: |
+          poetry run coverage xml -o docs/tests/coverage.xml
+      - name: Run Test Coverage HTML
+        run: |
+          poetry run coverage html -o docs/tests/coverage.html
+      - name: Generate Coverage Badge
+        run: |
+          poetry run genbadge tests --input-file=docs/tests/coverage.xml --output-file=docs/badges/coverage-badge.svg
 
-      - name: Generate JaCoCo Badge
-      if: ${{ github.ref == 'refs/heads/master' }}
-      uses: cicirello/jacoco-badge-generator@v2
-      with:
-        jacoco-csv-file: build/reports/jacoco/test/jacocoTestReport.csv
-        badges-directory: build/reports/jacoco/test/html/badges
-      name: Publish coverage report to GitHub Pages
-      if: ${{ github.ref == 'refs/heads/master' }}
-      uses: JamesIves/github-pages-deploy-action@v4
-      with:
-        folder: build/reports/jacoco/test/html
+        

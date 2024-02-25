@@ -9,8 +9,12 @@
 <a href="https://pehls.github.io/mlops_structure/">
     <img src="https://img.shields.io/website/https/pehls.github.io/mlops_structure/index.html.svg?label=docs&down_message=unavailable&up_message=available" alt="Documentation Status">
 </a>
-<a href="https://pehls.github.io/mlops_structure/">
-    <img src="https://cdn.hackernoon.com/images/2hVuiN1gfbdO9OXUxjCttPNETq73-2022-08-08T22:19:48.257Z-cl6lbgrz6002p0as65v8sfgja" alt="cov">
+<a href="https://pehls.github.io/mlops_structure/tests/coverage">
+    <img src="./docs/badges/coverage-badge.svg" alt="Test Coverage">
+</a>
+</a>
+<a href="https://pehls.github.io/mlops_structure/tests/report">
+    <img src="./docs/badges/tests-badge.svg" alt="Tests">
 </a>
 </p>
 MLOps full structure for llm/ml, done with Python
