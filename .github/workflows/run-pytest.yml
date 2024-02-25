@@ -32,21 +32,21 @@ jobs:
           poetry install
       - name: Test with pytest
         run: |
-          poetry run pytest --junitxml=docs/tests/junit.xml --html=docs/tests/report.html
+          pytest --junitxml=docs/tests/junit.xml --html=docs/tests/report.html
       - name: Generate Tests Badge
         run: |
-          poetry run genbadge tests --input-file=docs/tests/junit.xml --output-file=docs/badges/tests-badge.svg
+          genbadge tests --input-file=docs/tests/junit.xml --output-file=docs/badges/tests-badge.svg
       - name: Run Test Coverage Report
         run: |
-          poetry run coverage report
+          coverage report
       - name: Run Test Coverage XML
         run: |
-          poetry run coverage xml -o docs/tests/coverage.xml
+          coverage xml -o docs/tests/coverage.xml
       - name: Run Test Coverage HTML
         run: |
-          poetry run coverage html -o docs/tests/coverage.html
+          coverage html -o docs/tests/coverage.html
       - name: Generate Coverage Badge
         run: |
-          poetry run genbadge tests --input-file=docs/tests/coverage.xml --output-file=docs/badges/coverage-badge.svg
+          genbadge tests --input-file=docs/tests/coverage.xml --output-file=docs/badges/coverage-badge.svg
 
         
