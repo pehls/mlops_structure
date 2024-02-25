@@ -1,43 +1,70 @@
 repos:
--   repo: https://github.com/Lucas-C/pre-commit-hooks
-    rev: v1.1.13
-    hooks:
-    -   id: forbid-crlf
-    -   id: remove-crlf
-    -   id: forbid-tabs
-        exclude_types: [csv]
-    -   id: remove-tabs
-        exclude_types: [csv]
--   repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v4.1.0
-    hooks:
-    - id: trailing-whitespace
-    - id: end-of-file-fixer
-    - id: check-merge-conflict
-    - id: check-yaml
-      args: [--unsafe]
--   repo: https://github.com/pre-commit/mirrors-isort
-    rev: v5.10.1
-    hooks:
-    - id: isort
--   repo: https://github.com/ambv/black
-    rev: 22.3.0
-    hooks:
-    - id: black
-      language_version: python3.8
--   repo: https://github.com/pycqa/flake8
-    rev: 3.9.2
-    hooks:
-    -   id: flake8
-        additional_dependencies: [flake8-typing-imports==1.10.0]
-        exclude: ^tests
--   repo: local
-    hooks:
-    -   id: mypy
-        name: mypy
-        entry: mypy
-        exclude: ^tests
-        language: python
-        types: [python]
-        require_serial: true
-        verbose: true
+    # pre-commit hooks for generally useful checks
+    - repo: https://github.com/pre-commit/pre-commit-hooks
+      rev: v4.4.0
+      hooks:
+        - id: check-added-large-files
+        - id: check-ast
+        - id: check-case-conflict
+        - id: check-docstring-first
+        - id: check-json
+          exclude: .vscode
+        - id: check-yaml
+        - id: check-toml
+        - id: detect-private-key
+        - id: debug-statements
+        - id: end-of-file-fixer
+        - id: name-tests-test
+        - id: pretty-format-json
+        - id: requirements-txt-fixer
+        - id: trailing-whitespace
+
+    # flake8 - linting
+    - repo: https://github.com/pycqa/flake8
+      rev: 6.0.0
+      hooks:
+        - id: flake8
+
+    # code formatter to keep consistent
+    - repo: https://github.com/psf/black
+      rev: 23.1.0
+      hooks:
+        - id: black
+          args: [--safe]
+
+    # isort - sorting imports
+    - repo: https://github.com/pycqa/isort
+      rev: 5.12.0
+      hooks:
+        - id: isort
+
+    # mypy - lint-like type checking
+    - repo: https://github.com/pre-commit/mirrors-mypy
+      rev: v1.0.1
+      hooks:
+        - id: mypy
+          args: [--no-strict-optional, --ignore-missing-imports]
+          additional_dependencies: [types-pyyaml==6.0.1]
+
+    # update syntax to latest python style
+    - repo: https://github.com/asottile/pyupgrade
+      rev: v3.3.1
+      hooks:
+      - id: pyupgrade
+
+    # Check Markdown documents with Markdownlint(Node.js variant)
+    # https://github.com/DavidAnson/markdownlint
+    - repo: https://github.com/igorshubovych/markdownlint-cli
+      rev: v0.33.0
+      hooks:
+        - id: markdownlint
+
+    # run pytest
+    - repo: local
+      hooks:
+        - id: pytest-check
+          name: pytest-check
+          entry: pytest
+          language: system
+          pass_filenames: false
+          always_run: true

@@ -1,0 +1,16 @@
+plugins:
+  - jekyll-relative-links
+relative_links:
+  enabled: true
+  collections: true
+include:
+  - API.md
+  - AUTHORS.md
+  - CONTRIBUTING.md
+  - HISTORY.md
+  - INDEX.md
+  - INSTALLATION.md
+  - USAGE.md
+  theme:
+    features:
+      - navigation.instant
