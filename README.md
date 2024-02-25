@@ -15,11 +15,10 @@
     <img src="https://img.shields.io/website/https/pehls.github.io/mlops_structure/index.html.svg?label=docs&down_message=unavailable&up_message=available" alt="Documentation Status">
 </a>
 
-<a>
-
+<a href="https://github.com/pehls/mlops_structure/.github/workflows/">
+    <img src="https://pehls.github.io/mlops_structure/badges/coverage.svge" alt="cov">
 </a>
 </p>
-+ [![cov](https://pehls.github.io/mlops_structure/badges/coverage.svg)](https://github.com/pehls/mlops_structure/.github/workflows)
 
 MLOps full structure for llm/ml, done with Python
 
