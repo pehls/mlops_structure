@@ -27,9 +27,12 @@ jobs:
         uses: abatilo/actions-poetry@v2
         with:
           poetry-version: ${{ matrix.poetry-version }}
-      - name: Install dependencies
+      - name: Install dependencies from poetry
         run: |
           poetry install
+      - name: Install Dependencies from pip
+        run: |
+           pip install -r requirements.txt
       - name: Test with pytest
         run: |
           pytest --junitxml=docs/tests/junit.xml --html=docs/tests/report.html
