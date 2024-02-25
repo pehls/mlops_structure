@@ -41,13 +41,14 @@ jobs:
           genbadge tests --input-file=docs/tests/junit.xml --output-file=docs/badges/tests-badge.svg
       - name: Run Test Coverage Report
         run: |
+          coverage run -m pytest --junitxml=docs/tests/junit.xml --html=docs/tests/report.html
           coverage report
       - name: Run Test Coverage XML
         run: |
           coverage xml -o docs/tests/coverage.xml
       - name: Run Test Coverage HTML
         run: |
-          coverage html -o docs/tests/coverage.html
+          coverage html --directory=docs/tests/coverage.html
       - name: Generate Coverage Badge
         run: |
           genbadge tests --input-file=docs/tests/coverage.xml --output-file=docs/badges/coverage-badge.svg
