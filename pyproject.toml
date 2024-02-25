@@ -4,7 +4,7 @@ name = "mlops_structure"
 version = "0.1.0"
 homepage = "https://github.com/pehls/mlops_structure"
 description = "MLOps full structure for llm/ml, do."
-authors = ["Gabriel Pehls @ Tropical Brain <gabrielpehls@hotmail.com>"]
+authors = ["Gabriel Pehls at Tropical Brain <gabrielpehls@hotmail.com>"]
 readme = "README.md"
 license =  "MIT"
 classifiers=[
@@ -12,11 +12,7 @@ classifiers=[
     'Intended Audience :: Developers',
     'License :: OSI Approved :: MIT License',
     'Natural Language :: English',
-    'Programming Language :: Python :: 3',
-    'Programming Language :: Python :: 3.8',
-    'Programming Language :: Python :: 3.9',
-    'Programming Language :: Python :: 3.10',
-    'Programming Language :: Python :: 3.11',
+    'Programming Language :: Python :: 3.10.4'
 ]
 packages = [
     { include = "mlops_structure" },
@@ -50,11 +46,16 @@ mypy = {version = "^1.5.1", optional = true}
 setuptools = {version="^68.0", optional = true}
 pkginfo = {version="^1.9", optional = true}
 virtualenv = {version="^20.0", optional = true}
+deltalake = "^0.15.3"
+coolname = "^2.2.0"
+pytest-html = "^4.1.1"
 
 [tool.poetry.extras]
 test = [
     "pytest",
-    "pytest-cov"
+    "pytest-cov",
+    "pytest-html",
+    "coverage"
     ]
 
 dev = ["tox",
@@ -83,6 +84,9 @@ doc = [
 
 [tool.poetry.scripts]
 mlops_structure = 'mlops_structure.cli:main'
+
+[tool.poetry.group.dev.dependencies]
+ipykernel = "^6.29.2"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
