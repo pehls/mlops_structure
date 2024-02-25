@@ -12,7 +12,7 @@ classifiers=[
     'Intended Audience :: Developers',
     'License :: OSI Approved :: MIT License',
     'Natural Language :: English',
-    'Programming Language :: Python :: 3.10'
+    'Programming Language :: Python :: 3.10.4'
 ]
 packages = [
     { include = "mlops_structure" },
@@ -46,11 +46,15 @@ mypy = {version = "^1.5.1", optional = true}
 setuptools = {version="^68.0", optional = true}
 pkginfo = {version="^1.9", optional = true}
 virtualenv = {version="^20.0", optional = true}
+deltalake = "^0.15.3"
+coolname = "^2.2.0"
 
 [tool.poetry.extras]
 test = [
     "pytest",
-    "pytest-cov"
+    "pytest-cov",
+    "pytest-html",
+    "coverage"
     ]
 
 dev = ["tox",
