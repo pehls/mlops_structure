@@ -35,21 +35,21 @@ jobs:
            pip install -r requirements.txt
       - name: Test with pytest
         run: |
-          pytest --junitxml=docs/tests/junit.xml --html=docs/tests/report.html
+          python -m pytest --junitxml=docs/tests/junit.xml --html=docs/tests/report.html
       - name: Generate Tests Badge
         run: |
-          genbadge tests --input-file=docs/tests/junit.xml --output-file=docs/badges/tests-badge.svg
+          python -m genbadge tests --input-file=docs/tests/junit.xml --output-file=docs/badges/tests-badge.svg
       - name: Run Test Coverage Report
         run: |
-          coverage report
+          python -m coverage report
       - name: Run Test Coverage XML
         run: |
-          coverage xml -o docs/tests/coverage.xml
+          python -m coverage xml -o docs/tests/coverage.xml
       - name: Run Test Coverage HTML
         run: |
-          coverage html -o docs/tests/coverage.html
+          python -m coverage html -o docs/tests/coverage.html
       - name: Generate Coverage Badge
         run: |
-          genbadge tests --input-file=docs/tests/coverage.xml --output-file=docs/badges/coverage-badge.svg
+          python -m genbadge tests --input-file=docs/tests/coverage.xml --output-file=docs/badges/coverage-badge.svg
 
         

@@ -15,6 +15,8 @@ class delta_storage(interface_storage):
         self.store_name = self.generate_name_if_none(store_name)
         self._metadata_store_path = f'metadata'
         self.operator = operator
+        if (self.create_path_if_not_exists(f'data/')):
+            pass # pensar em possiveis erros
         if (self.create_path_if_not_exists(f'{self.base_path}')):
             pass # pensar em possiveis erros
         if (self.create_path_if_not_exists(f'{self.base_path}/{self.store_name}')):
