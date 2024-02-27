@@ -53,8 +53,9 @@ jobs:
         run: |
           genbadge coverage --input-file=docs/tests/coverage.xml --output-file=docs/badges/coverage-badge.svg
       - name: Commit 
-        uses: EndBug/add-and-commit@v9
+        uses: devops-infra/action-pull-request@v0.5.5
         with:
-          add: '.'
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          
 
         
