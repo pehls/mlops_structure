@@ -52,10 +52,17 @@ jobs:
       - name: Generate Coverage Badge
         run: |
           genbadge coverage --input-file=docs/tests/coverage.xml --output-file=docs/badges/coverage-badge.svg
+      - name: Commit and push changes
+        uses: devops-infra/action-commit-push@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          commit_prefix: "[AUTO-COMMIT] Updating tests, coverage and badges"
       - name: Commit 
         uses: devops-infra/action-pull-request@v0.5.5
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          
+          body: "**Automated pull request**"
+          title: ${{ github.event.commits[0].message }}
+
 
         
