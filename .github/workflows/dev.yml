@@ -71,10 +71,6 @@ jobs:
       - name: test with pytest
         run: python -m pytest --junitxml=docs/tests/junit.xml --html=docs/tests/report.html
 
-      - uses: codecov/codecov-action@v3
-        with:
-          fail_ci_if_error: true
-
   publish_dev_build:
     # if test failed, we should not publish
     needs: test
