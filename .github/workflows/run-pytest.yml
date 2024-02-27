@@ -57,12 +57,19 @@ jobs:
         with:
           add: '.'
           push: true
+          new_branch: auto-created-branch
+      - name: Extract branch name
+        shell: bash
+        run: echo "branch=${GITHUB_HEAD_REF:-${GITHUB_REF#refs/heads/}}" >> $GITHUB_OUTPUT
+        id: extract_branch
       - name: Commit 
         uses: devops-infra/action-pull-request@v0.5.5
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           body: "**Automated pull request**"
           title: ${{ github.event.commits[0].message }}
+          source_branch: auto-created-branch
+          target_branch: ${{ steps.extract_branch.outputs.branch }}
 
 
         
