@@ -76,6 +76,3 @@ jobs:
         run: gh pr close --comment "Auto-closing pull request" --delete-branch "auto-created-branch"
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-
-        
