@@ -1,5 +1,6 @@
 import pytest
-import os
+import os, sys
+print(os.getcwd())
 from mlops_structure.storage_flavors.Delta import delta_storage
 
 def test_basepath_is_created_at_init():
