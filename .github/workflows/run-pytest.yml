@@ -56,6 +56,7 @@ jobs:
         uses:  EndBug/add-and-commit@v9
         with:
           add: '.'
+          pull: ''
           push: true
           new_branch: auto-created-branch
       - name: Extract branch name
@@ -70,6 +71,7 @@ jobs:
           title: ${{ github.event.commits[0].message }}
           source_branch: auto-created-branch
           target_branch: ${{ steps.extract_branch.outputs.branch }}
+          label: automatic
 
 
         
