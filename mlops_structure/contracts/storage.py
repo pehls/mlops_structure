@@ -1,5 +1,6 @@
 class interface_storage(object):
-    def __init__(self):
+    def __init__(self, store_name : str = ''):
+        self.store_name = store_name
         NotImplementedError()
 
     @staticmethod

@@ -2,7 +2,7 @@
 
 ## Development Lead
 
-* Gabriel Pehls @ Tropical Brain <gabrielpehls@hotmail.com>
+* Gabriel Pehls at Tropical Brain <gabrielpehls@hotmail.com>
 
 ## Contributors
 
