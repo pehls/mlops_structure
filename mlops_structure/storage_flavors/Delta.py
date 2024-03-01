@@ -5,7 +5,7 @@ from deltalake.writer import write_deltalake
 from deltalake import DeltaTable
 from coolname import generate_slug
 from random import randrange
-from mlops_structure.contracts.storage import interface_storage
+from ..contracts.storage import interface_storage
 
 
 class delta_storage(interface_storage):
