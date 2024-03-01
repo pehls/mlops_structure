@@ -1,1 +1,19 @@
-<?xml version="1.0" encoding="utf-8"?><testsuites><testsuite name="pytest" errors="0" failures="0" skipped="0" tests="11" time="6.178" timestamp="2024-03-01T02:48:04.456141" hostname="DESKTOP-1B13685"><testcase classname="tests.test_structure" name="test_basepath_is_created_at_init" time="0.001" /><testcase classname="tests.storage_flavors.test_delta" name="test_data_path_is_created_at_init" time="0.001" /><testcase classname="tests.storage_flavors.test_delta" name="test_base_path_is_created_at_init" time="0.001" /><testcase classname="tests.storage_flavors.test_delta" name="test_store_name_path_is_created_at_init" time="0.001" /><testcase classname="tests.storage_flavors.test_delta" name="test_metadata_store_path_is_created_at_init" time="0.001" /><testcase classname="tests.storage_flavors.test_delta" name="test_feature_is_saved" time="2.946" /><testcase classname="tests.storage_flavors.test_delta" name="test_path_is_s3" time="0.001" /><testcase classname="tests.storage_flavors.test_delta" name="test_path_is_not_s3" time="0.001" /><testcase classname="tests.storage_flavors.test_delta" name="test_name_is_generated" time="0.001" /><testcase classname="tests.storage_flavors.test_delta" name="test_name_is_not_generated" time="0.001" /><testcase classname="tests.storage_flavors.test_delta" name="test_list_all_features_working" time="2.784" /></testsuite></testsuites>
+<?xml version="1.0" encoding="utf-8"?><testsuites><testsuite name="pytest" errors="2" failures="0" skipped="0" tests="2" time="0.661" timestamp="2024-03-01T02:54:08.314346" hostname="DESKTOP-1B13685"><testcase classname="" name="tests.test_structure" time="0.000"><error message="collection failure">ImportError while importing test module 'D:\projects\mlops_structure\tests\test_structure.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+C:\Users\Pehls\AppData\Local\Programs\Python\Python310\lib\importlib\__init__.py:126: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+tests\__init__.py:3: in &lt;module&gt;
+    from mlops_structure import *
+mlops_structure\__init__.py:7: in &lt;module&gt;
+    from structure import feature_store
+E   ModuleNotFoundError: No module named 'structure'</error></testcase><testcase classname="" name="tests.storage_flavors.test_delta" time="0.000"><error message="collection failure">ImportError while importing test module 'D:\projects\mlops_structure\tests\storage_flavors\test_delta.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+C:\Users\Pehls\AppData\Local\Programs\Python\Python310\lib\importlib\__init__.py:126: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+tests\storage_flavors\test_delta.py:4: in &lt;module&gt;
+    from mlops_structure.contracts.storage import interface_storage
+mlops_structure\__init__.py:7: in &lt;module&gt;
+    from structure import feature_store
+E   ModuleNotFoundError: No module named 'structure'</error></testcase></testsuite></testsuites>
