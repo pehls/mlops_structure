@@ -1,3 +1,6 @@
-"""Unit test package for mlops_structure."""
-from tests.structure import *
-from tests.storage_flavors.test_Delta import *
+from tests import *
+from tests.storage_flavors import *
+from mlops_structure import (
+      feature_store
+    , delta_storage
+    )

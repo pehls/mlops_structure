@@ -1,5 +1,4 @@
 from .contracts.storage import interface_storage
-from .storage_flavors.Delta import delta_storage
 class feature_store(object):
     """
     Example
