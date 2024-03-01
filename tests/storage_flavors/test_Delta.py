@@ -1,8 +1,8 @@
 import pytest
 import os, sys
 import pandas as pd
-from mlops_structure.contracts.storage import interface_storage
-from mlops_structure.storage_flavors.delta import delta_storage
+from contracts.storage import interface_storage
+from storage_flavors.delta import delta_storage
 from tests.data_mock import *
 
 def test_data_path_is_created_at_init():
