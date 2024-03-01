@@ -1,2 +1,3 @@
 from tests import *
 from tests.storage_flavors import *
+from mlops_structure import *
